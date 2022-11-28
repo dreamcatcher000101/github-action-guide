@@ -25,8 +25,9 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           script: |
-            cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide/client
-            sudo git pull
+            cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide
+            git pull
+            cd client/
             npm install
             npm install pm2 -g
             npm start
