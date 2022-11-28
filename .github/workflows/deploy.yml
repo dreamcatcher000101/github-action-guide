@@ -27,7 +27,3 @@ jobs:
           script: |
             cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide
             git pull
-            cd client/
-            npm install --global yarn
-            yarn
-            yarn start
