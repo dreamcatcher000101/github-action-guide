@@ -7,7 +7,7 @@ name: Deploy Client to Dev Server
 jobs:
   build:
     name: Build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
@@ -16,7 +16,7 @@ jobs:
   deploy:
     name: Deploy
     needs: build
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands
         uses: appleboy/ssh-action@master
@@ -25,7 +25,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           script: |
-            cd /home/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide/client
+            cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide/client
             sudo git pull
             npm install
             npm install pm2 -g
