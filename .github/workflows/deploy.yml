@@ -1,0 +1,33 @@
+on:
+  push:
+    branches: [ main ]
+
+name: Deploy Client to Dev Server
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+        
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: macos-latest
+    steps:
+    - name: executing remote ssh commands
+      uses: appleboy/ssh-action@master
+      with:
+        key: ${{ secrets.SSHKEY }}
+        host : ${{ secrets.HOST }}
+        username : ${{ secrets.USERNAME }}
+        script: |
+            cd /home/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide/client
+            sudo git pull
+            npm install
+            npm install pm2 -g
+            npm start
+            pm2 start npm --name "github-action-guide" -- start
