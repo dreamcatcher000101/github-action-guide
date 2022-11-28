@@ -28,7 +28,5 @@ jobs:
             cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide
             git pull
             cd client/
-            npm install
-            npm install pm2 -g
-            npm start
-            pm2 start npm --name "github-action-guide" -- start
+            yarn install
+            yarn start
