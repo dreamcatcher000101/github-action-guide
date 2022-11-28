@@ -1,6 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "license": "MIT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -8,10 +9,12 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "global": "^4.4.0",
+    "prettier": "^2.8.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
-    "typescript": "^4.7.3",
+    "typescript": "*",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -21,13 +24,42 @@
     "@types/jest": "^27.5.2",
     "@types/node": "^16.11.38",
     "@types/react": "^18.0.12",
-    "@types/react-dom": "^18.0.5"
+    "@types/react-dom": "^18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.44.0",
+    "@typescript-eslint/parser": "^5.44.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-react": "^7.31.11"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "no-unused-vars": "warn"
+    },
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "overrides": [],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "@typescript-eslint"
     ]
+  },
+  "prettier": {
+    "semi": true,
+    "tabWidth": 2,
+    "singleQuote": false
   },
   "browserslist": {
     "production": [
