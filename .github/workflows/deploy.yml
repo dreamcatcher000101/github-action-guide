@@ -28,5 +28,6 @@ jobs:
             cd /Users/${{ secrets.USERNAME }}/Documents/Mine/github-action-guide
             git pull
             cd client/
-            yarn install
+            npm install --global yarn
+            yarn
             yarn start
