@@ -9,10 +9,12 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.0",
     "global": "^4.4.0",
     "prettier": "^2.8.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "typescript": "*",
